@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.hy0936.com.tw',
+    '127.0.0.1',
 ]
 
 
@@ -91,6 +92,18 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# Email setting
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+  
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nctudatabase@gmail.com'
+EMAIL_HOST_PASSWORD = 'NCTUdjango'
+DEFAULT_FROM_EMAIL = 'nctudatabase@gmail.com'
+
 
 
 # Password validation

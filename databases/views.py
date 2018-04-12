@@ -47,3 +47,21 @@ class RegistrationsViewSet(viewsets.ModelViewSet):
     queryset = Registrations.objects.all()
     serializer_class = RegistrationsSerializer
 
+#-------------- email sending test ----------------------
+
+from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.http import HttpResponse
+
+def SendmailViewSet(request):
+    send_mail(
+        'Subject',
+        'Message',
+        'Lin Hsiang <nctudatabase@gmail.com>',
+        ['ggh93234999@gmail.com', 'ggh93234999@yahoo.com.tw']
+    )
+    return HttpResponse("Send successful!")
+
+
+#-------------- after here is just for test ----------------------
