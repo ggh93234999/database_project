@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from databases import views
+from rest_framework_jwt.views import obtain_jwt_token
 
 router = DefaultRouter()
 router.register(r'Departments',views.DepartmentsViewSet)
@@ -33,6 +34,8 @@ router.register(r'Registrations',views.RegistrationsViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('send/',views.SendmailViewSet)
+    path('send/',views.SendmailViewSet),
+    path(r'api-token-auth/',obtain_jwt_token),
+    path('signup/',views.Singup),
 
 ]

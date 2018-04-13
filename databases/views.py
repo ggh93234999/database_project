@@ -65,3 +65,26 @@ def SendmailViewSet(request):
 
 
 #-------------- after here is just for test ----------------------
+
+
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+
+def Singup(request):
+    
+    if request.method == 'POST':
+        try:
+            uname = request.POST['username']
+            upass = request.POST['password']
+            umail = request.POST['email']
+            print(uname,upass,umail)
+            tmp_new_user = User.objects.create_user(uname, umail, upass)
+            return HttpResponse("Create Successful")
+
+        except:
+            response = HttpResponse("Sothing Error")
+            response.status_code = 400
+            return response
+
+
+

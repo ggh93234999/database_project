@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -9,7 +10,7 @@ class Departments(models.Model):
     classtype    = models.CharField(max_length = 40)
 
 class Users(models.Model):
-    name         = models.CharField(max_length = 20)
+    name         = models.ForeignKey(User, on_delete = models.DO_NOTHING)
     phonenumber  = models.CharField(max_length = 15)
     gender       = models.CharField(max_length = 5)
     email        = models.CharField(max_length = 40)
