@@ -1,2 +1,4 @@
 Pipfile
 Pipfile.lock
+databases/__pycache__/
+PE/__pycache__/

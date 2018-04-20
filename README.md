@@ -20,6 +20,10 @@
 3. I close the 'CSRF ' in the setting.py middleware
 4. I add djangorestframework-jwt for auth, but it's not work right away
 
+### 2018.4.20
+1. jwt is OK, now need to get the token at /api-token-auth/ first, and then add the header "Authorization": '"JWT "+token'
+2. now i only lock the Users and Departments.
+
 ## Installation
 
 ### Pipenv

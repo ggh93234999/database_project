@@ -37,5 +37,6 @@ urlpatterns = [
     path('send/',views.SendmailViewSet),
     path(r'api-token-auth/',obtain_jwt_token),
     path('signup/',views.Singup),
+#    path('restricted/', views.RestrictedView.as_view()),
 
 ]

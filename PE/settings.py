@@ -105,7 +105,8 @@ EMAIL_HOST_PASSWORD = 'NCTUdjango'
 DEFAULT_FROM_EMAIL = 'nctudatabase@gmail.com'
 
 
-#Django restframework sertting
+# Django restframework sertting
+
 #REST_FRAMEWORK = {
 #    'DEFAULT_PERMISSION_CLASSES': (
 #        'rest_framework.permissions.IsAuthenticated',

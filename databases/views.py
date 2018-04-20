@@ -5,13 +5,24 @@ from databases.serializers import *
 
 from rest_framework import viewsets
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 # Create your views here.
 
+
+
 class DepartmentsViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, )
+    authentication_classes = (JSONWebTokenAuthentication, )
     queryset = Departments.objects.all()
     serializer_class = DepartmentsSerializer
 
 class UsersViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, )
+    authentication_classes = (JSONWebTokenAuthentication, )
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
 
@@ -54,6 +65,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.http import HttpResponse
 
+
 def SendmailViewSet(request):
     send_mail(
         'Subject',
@@ -65,6 +77,18 @@ def SendmailViewSet(request):
 
 
 #-------------- after here is just for test ----------------------
+
+
+#class RestrictedView(APIView):
+#    permission_classes = (IsAuthenticated, )
+#    authentication_classes = (JSONWebTokenAuthentication, )
+#
+#    def get(self, request):
+#        data = {
+#            'foo': 'bar'	
+#        }
+#        return Response(data);
+
 
 
 from django.contrib.auth.models import User
